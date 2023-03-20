@@ -1,42 +1,39 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import TokenHeader from "./header";
 import Token from "./token";
 
-const tokens = [
-  {
-    provider: "Ethereum",
-    symbol: "ETH",
-    portfolioShare: "99.72",
-    price: {
-      current: "1,766.85",
-      market: "-3.50",
-    },
-    balance: {
-      fiat: "524.27",
-      native: "0.325",
-    },
-  },
-  {
-    provider: "Matic",
-    symbol: "MATIC",
-    portfolioShare: "0.28",
-    price: {
-      current: "1.12",
-      market: "-7.09",
-    },
-    balance: {
-      fiat: "1.62",
-      native: "1.4444",
-    },
-  },
-];
+interface IToken {
+  provider: string;
+  symbol: string;
+  portfolioShare: string;
+  price: {
+    current: string;
+    market: string;
+  };
+  balance: {
+    fiat: string;
+    native: string;
+  };
+}
 
 const Tokens: React.FC = () => {
+  const [tokens, setTokens] = useState<IToken[]>();
+
+  const fetchToken = useCallback(() => {
+    fetch("/api/tokens")
+      .then((res) => res.json())
+      .then((res) => setTokens(res))
+  }, []);
+
+  useEffect(() => {
+    void fetchToken();
+  });
+
   return (
     <div className="grid grid-flow-row divide-y divide-slate-700">
       <TokenHeader />
 
-      {tokens.map((token) => (
+      {tokens && tokens.map((token) => (
         <Token key={token.symbol} {...token} />
       ))}
     </div>
