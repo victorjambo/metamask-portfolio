@@ -13,17 +13,10 @@ const DesktopSidebar: React.FC<IDesktopSidebar> = ({
   changeCurrent,
 }) => {
   return (
-    <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-40 lg:flex-col">
+    <div className="hidden lg:fixed lg:inset-y-0 lg:flex w-44 lg:flex-col">
       {/* Sidebar component, swap this element with another sidebar if you like */}
       <div className="flex flex-grow flex-col overflow-y-auto  bg-[#1e1f24] pt-5">
-        <div className="flex flex-shrink-0 items-center px-4">
-          <img
-            className="h-8 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-            alt="Your Company"
-          />
-        </div>
-        <div className="mt-5 flex flex-grow flex-col">
+        <div className="mt-14 flex flex-grow flex-col">
           <nav className="flex-1 space-y-1 pb-4">
             {navigation.map((item) => (
               <Link

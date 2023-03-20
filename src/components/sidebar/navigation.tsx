@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 export const navigation = [
-  { name: "Dashboard", href: "/", icon: RectangleGroupIcon },
+  { name: "Portfolio", href: "/", icon: RectangleGroupIcon },
   { name: "Buy", href: "/coming-soon", icon: PlusCircleIcon },
   { name: "Swap", href: "/coming-soon", icon: ArrowPathIcon },
   { name: "Bridge", href: "/coming-soon", icon: ArrowsRightLeftIcon },
