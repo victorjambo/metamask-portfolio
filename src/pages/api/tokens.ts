@@ -13,6 +13,7 @@ interface IToken {
     fiat: string;
     native: string;
   };
+  tokenIcon: string;
 }
 
 export default function handler(
@@ -32,6 +33,8 @@ export default function handler(
         fiat: "524.27",
         native: "0.325",
       },
+      tokenIcon:
+        "https://token.metaswap.codefi.network/assets/networkLogos/ethereum.svg",
     },
     {
       provider: "Matic",
@@ -45,6 +48,8 @@ export default function handler(
         fiat: "1.62",
         native: "1.4444",
       },
+      tokenIcon:
+        "https://token.metaswap.codefi.network/assets/networkLogos/polygon.svg",
     },
   ]);
 }

@@ -14,6 +14,7 @@ interface IToken {
     fiat: string;
     native: string;
   };
+  tokenIcon: string;
 }
 
 const Tokens: React.FC = () => {

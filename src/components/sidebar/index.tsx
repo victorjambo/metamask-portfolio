@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import MobileSidebar from "./mobile";
 import DesktopSidebar from "./desktop";
@@ -8,6 +9,7 @@ import {
   GlobeAltIcon,
 } from "@heroicons/react/24/outline";
 import DropdownPill from "../dropdownPill";
+import { JazziconGenerator } from "../jazziconGenerator";
 
 const Sidebar: React.FC<{ children: JSX.Element; pageTitle?: string }> = ({
   children,
@@ -44,14 +46,25 @@ const Sidebar: React.FC<{ children: JSX.Element; pageTitle?: string }> = ({
 
                     <DropdownPill>
                       <>
-                        <GlobeAltIcon className="h-5 w-5 text-yellow-600" />
-                        <span>0x684a...c88a35</span>
+                        <JazziconGenerator address="0x2274156925a2c4e46410dd8D956302d8c415eEF6" />
+                        <span>0x2274...15eEF6</span>
                       </>
                     </DropdownPill>
 
                     <DropdownPill>
                       <>
-                        <CurrencyDollarIcon className="h-5 w-5 text-purple-600" />
+                        <div className="flex -space-x-1.5 overflow-hidden group">
+                          <img
+                            src="https://token.metaswap.codefi.network/assets/networkLogos/ethereum.svg"
+                            className="w-5 h-5 rounded-full ring-4 ring-[#101213] group-hover:ring-blue-800"
+                            alt="eth"
+                          />
+                          <img
+                            src="https://token.metaswap.codefi.network/assets/networkLogos/polygon.svg"
+                            className="w-5 h-5 rounded-full ring-4 ring-[#101213] group-hover:ring-blue-800"
+                            alt="matic"
+                          />
+                        </div>
                         <span>2 Networks</span>
                       </>
                     </DropdownPill>

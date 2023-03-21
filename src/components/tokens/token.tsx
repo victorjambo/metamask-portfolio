@@ -14,6 +14,7 @@ interface IToken {
     fiat: string;
     native: string;
   };
+  tokenIcon: string;
 }
 
 const Token: React.FC<IToken> = ({
@@ -21,13 +22,14 @@ const Token: React.FC<IToken> = ({
   symbol,
   portfolioShare,
   price,
-  balance
+  balance,
+  tokenIcon
 }) => {
   return (
     <div className="grid grid-flow-col grid-cols-5 w-full auto-cols-max hover:bg-[#262833] cursor-pointer items-center">
       <div className="p-4 col-span-2 flex items-center">
         <img
-          src="https://token.metaswap.codefi.network/assets/nativeCurrencyLogos/ethereum.svg"
+          src={tokenIcon}
           className="w-8 h-8 mr-4"
           alt={symbol}
         />
