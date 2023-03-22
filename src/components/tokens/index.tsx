@@ -1,42 +1,35 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { usePortfolioContext } from "@/context/portfolio";
+import { useFetchTokens } from "@/hooks/fetchTokens";
+import React, { useCallback, useEffect } from "react";
+import SkeletonLoader from "../skeletonLoader";
 import TokenHeader from "./header";
+import Loader from "./loader";
 import Token from "./token";
 
-interface IToken {
-  provider: string;
-  symbol: string;
-  portfolioShare: string;
-  price: {
-    current: string;
-    market: string;
-  };
-  balance: {
-    fiat: string;
-    native: string;
-  };
-  tokenIcon: string;
-}
-
 const Tokens: React.FC = () => {
-  const [tokens, setTokens] = useState<IToken[]>();
-
-  const fetchToken = useCallback(() => {
-    fetch("/api/tokens")
-      .then((res) => res.json())
-      .then((res) => setTokens(res))
-  }, []);
+  const { tokens } = usePortfolioContext();
+  const { fetchTokens } = useFetchTokens();
 
   useEffect(() => {
-    void fetchToken();
+    void fetchTokens();
   });
 
+  console.log(tokens);
+  
+
   return (
-    <div className="grid grid-flow-row divide-y divide-slate-700">
+    <div
+      className={`grid grid-flow-row ${
+        tokens?.length ? "divide-y divide-slate-700" : ""
+      }`}
+    >
       <TokenHeader />
 
-      {tokens && tokens.map((token) => (
-        <Token key={token.symbol} {...token} />
-      ))}
+      {tokens?.length ? (
+        tokens.map((token) => <Token key={token.symbol} {...token} />)
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };

@@ -1,20 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import { IToken } from "@/types";
 import type { NextApiRequest, NextApiResponse } from "next";
-
-interface IToken {
-  provider: string;
-  symbol: string;
-  portfolioShare: string;
-  price: {
-    current: string;
-    market: string;
-  };
-  balance: {
-    fiat: string;
-    native: string;
-  };
-  tokenIcon: string;
-}
 
 export default function handler(
   req: NextApiRequest,
