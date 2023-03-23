@@ -33,7 +33,7 @@ const Sidebar: React.FC<{ children: JSX.Element; pageTitle?: string }> = ({
         {/* Static sidebar for desktop */}
         <DesktopSidebar {...{ currentNav, changeCurrent }} />
 
-        <div className="flex flex-1 flex-col lg:pl-48 h-screen bg-[#101213] text-white">
+        <div className="flex flex-1 flex-col lg:pl-48 h-screen overflow-y-scroll bg-[#101213] text-white">
           <main className="flex-1">
             <div className="py-8">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
