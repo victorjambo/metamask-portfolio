@@ -1,7 +1,6 @@
 import { usePortfolioContext } from "@/context/portfolio";
 import { useFetchTokens } from "@/hooks/fetchTokens";
-import React, { useCallback, useEffect } from "react";
-import SkeletonLoader from "../skeletonLoader";
+import React, { useEffect } from "react";
 import TokenHeader from "./header";
 import Loader from "./loader";
 import Token from "./token";
@@ -13,9 +12,6 @@ const Tokens: React.FC = () => {
   useEffect(() => {
     void fetchTokens();
   });
-
-  console.log(tokens);
-  
 
   return (
     <div

@@ -1,7 +1,8 @@
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import React from "react";
-import DropdownPill from "./dropdownPill";
-import Tokens from "./tokens";
+import DropdownPill from "../reusables/dropdownPill";
+import TabSwitcher from "../assets/switcher";
+import Assets from "../assets";
 
 const Portfolio: React.FC = () => {
   return (
@@ -28,23 +29,11 @@ const Portfolio: React.FC = () => {
               <span>List view</span>
             </DropdownPill>
 
-            <div className="flex text-sm space-x-3 border border-[#3e3f4b] rounded-full">
-              <button className="bg-[#3e3f4b] text-white rounded-full px-3.5 py-2 cursor-pointer">
-                Tokens
-              </button>
-              <button className="hover:bg-[#262833] text-[#a8abbe] rounded-full px-3.5 py-2 cursor-pointer">
-                NFTs
-              </button>
-              <button className="hover:bg-[#262833] text-[#a8abbe] rounded-full px-3.5 py-2 cursor-pointer">
-                Transaction
-              </button>
-            </div>
+            <TabSwitcher />
           </div>
         </div>
 
-        <div className="mt-7">
-          <Tokens />
-        </div>
+        <Assets />
       </div>
     </div>
   );

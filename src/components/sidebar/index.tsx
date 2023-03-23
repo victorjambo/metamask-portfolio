@@ -2,14 +2,13 @@
 import { useState } from "react";
 import MobileSidebar from "./mobile";
 import DesktopSidebar from "./desktop";
-import Header from "../header";
+import Header from "../reusables/header";
 import {
   AdjustmentsHorizontalIcon,
   CurrencyDollarIcon,
-  GlobeAltIcon,
 } from "@heroicons/react/24/outline";
-import DropdownPill from "../dropdownPill";
-import { JazziconGenerator } from "../jazziconGenerator";
+import DropdownPill from "../reusables/dropdownPill";
+import { JazziconGenerator } from "../reusables/jazziconGenerator";
 
 const Sidebar: React.FC<{ children: JSX.Element; pageTitle?: string }> = ({
   children,

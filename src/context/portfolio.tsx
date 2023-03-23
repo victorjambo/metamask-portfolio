@@ -1,3 +1,4 @@
+import { AssetsTabs } from "@/components/assets/tabs";
 import { IToken } from "@/types";
 import {
   createContext,
@@ -10,6 +11,8 @@ import {
 interface IPortfolioContext {
   tokens: IToken[];
   setTokens: Dispatch<SetStateAction<IToken[]>>;
+  currentTab: AssetsTabs;
+  setCurrentTab: Dispatch<SetStateAction<AssetsTabs>>;
 }
 
 const PortfolioContext = createContext<Partial<IPortfolioContext>>({});
@@ -21,9 +24,12 @@ const PortfolioProvider: React.FC<{ children: JSX.Element }> = ({
   children,
 }) => {
   const [tokens, setTokens] = useState<IToken[]>([]);
+  const [currentTab, setCurrentTab] = useState<AssetsTabs>(AssetsTabs.Tokens);
 
   return (
-    <PortfolioContext.Provider value={{ tokens, setTokens }}>
+    <PortfolioContext.Provider
+      value={{ tokens, setTokens, currentTab, setCurrentTab }}
+    >
       {children}
     </PortfolioContext.Provider>
   );
