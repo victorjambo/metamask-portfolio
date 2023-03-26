@@ -25,7 +25,7 @@ const DesktopSidebar: React.FC<IDesktopSidebar> = ({
                 className={classNames(
                   item.name === currentNav
                     ? "text-white border-r-2 border-[#496ce9]"
-                    : "text-[#a8abbe]",
+                    : "text-subdued",
                   "group flex items-center hover:bg-[#262833] py-2 text-sm font-medium"
                 )}
                 onClick={() => changeCurrent(item.name)}
@@ -34,7 +34,7 @@ const DesktopSidebar: React.FC<IDesktopSidebar> = ({
                   className={classNames(
                     item.name === currentNav
                       ? "text-[#496ce9]"
-                      : "text-[#a8abbe]",
+                      : "text-subdued",
                     "mr-3 h-6 w-6 flex-shrink-0 ml-4"
                   )}
                   aria-hidden="true"

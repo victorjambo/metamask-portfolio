@@ -34,9 +34,9 @@ const Sidebar: React.FC<{ children: JSX.Element; pageTitle?: string }> = ({
         <DesktopSidebar {...{ currentNav, changeCurrent }} />
 
         <div className="flex flex-1 flex-col lg:pl-48 h-screen overflow-y-scroll bg-[#101213] text-white">
-          <main className="flex-1">
+          <main className="flex-1 md:mx-4 my-4 lg:mx-8 lg:my-0">
             <div className="py-8">
-              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div>
                 <div className="w-full flex justify-between items-center">
                   <div className="flex space-x-3 items-center">
                     <h3 className="text-2xl font-bold text-white pr-2">
@@ -85,7 +85,7 @@ const Sidebar: React.FC<{ children: JSX.Element; pageTitle?: string }> = ({
                   </div>
                 </div>
               </div>
-              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8">
+              <div className="pt-8">
                 {children}
               </div>
             </div>

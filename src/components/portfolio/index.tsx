@@ -3,8 +3,12 @@ import React from "react";
 import DropdownPill from "../reusables/dropdownPill";
 import TabSwitcher from "../assets/switcher";
 import Assets from "../assets";
+import { AssetsTabs } from "../assets/tabs";
+import { usePortfolioContext } from "@/context/portfolio";
 
 const Portfolio: React.FC = () => {
+  const { currentTab } = usePortfolioContext();
+
   return (
     <div>
       <div className="md:mb-10 my-6 md:my-0">
@@ -25,9 +29,11 @@ const Portfolio: React.FC = () => {
           </div>
 
           <div className="flex items-center font-medium space-x-3">
-            <DropdownPill>
-              <span>List view</span>
-            </DropdownPill>
+            {currentTab === AssetsTabs.Tokens && (
+              <DropdownPill>
+                <span>List view</span>
+              </DropdownPill>
+            )}
 
             <TabSwitcher />
           </div>
