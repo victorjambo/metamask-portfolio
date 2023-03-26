@@ -1,5 +1,5 @@
 import { AssetsTabs } from "@/components/assets/tabs";
-import { INFT, IToken, ITransaction } from "@/types";
+import { INFTResponse, IToken, ITransaction } from "@/types";
 import {
   createContext,
   Dispatch,
@@ -13,8 +13,8 @@ interface IPortfolioContext {
   setTokens: Dispatch<SetStateAction<IToken[]>>;
   currentTab: AssetsTabs;
   setCurrentTab: Dispatch<SetStateAction<AssetsTabs>>;
-  nfts: INFT[];
-  setNFTs: Dispatch<SetStateAction<INFT[]>>;
+  nfts: INFTResponse[];
+  setNFTs: Dispatch<SetStateAction<INFTResponse[]>>;
   transactions: Record<string, ITransaction[]> | null;
   setTransactions: Dispatch<
     SetStateAction<Record<string, ITransaction[]> | null>
@@ -29,7 +29,7 @@ export const usePortfolioContext = (): Partial<IPortfolioContext> =>
 const PortfolioProvider: React.FC<{ children: JSX.Element }> = ({
   children,
 }) => {
-  const [nfts, setNFTs] = useState<INFT[]>([]);
+  const [nfts, setNFTs] = useState<INFTResponse[]>([]);
   const [tokens, setTokens] = useState<IToken[]>([]);
   const [transactions, setTransactions] = useState<Record<
     string,
